@@ -1,0 +1,91 @@
+.anketa {
+    // @include tablet{
+    //     padding-top: 150px;
+    // }
+
+    & .project_title {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    & .project_desc {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 20px;
+        max-width: 750px;
+
+        & br{
+            @include mobile{
+                display: none;
+            }
+        }
+    }
+
+    & form {
+        max-width: 472px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.project_input {
+    padding: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: black;
+    border-radius: 10px;
+    background-color: #fff;
+
+    &::placeholder{
+        color: #acacac;
+    }
+
+    @include mobile{
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    &:active, &:focus{
+        outline: none;
+    }
+}
+
+.project_submit {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    color: #fff;
+    border-radius: 10px;
+    background: #c30d23;
+    padding: 15px;
+    cursor: pointer;
+    border: none;
+
+    @include mobile{
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.anketa_politics {
+    display: block;
+    margin: 10px auto 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: center;
+    color: #fff;
+
+    & a {
+        text-decoration: underline;
+    }
+}

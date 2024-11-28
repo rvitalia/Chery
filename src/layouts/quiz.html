@@ -15,7 +15,47 @@
         {{> footer-custom }}
 
     </div>
-    <script src="assets/js/app.js"></script>
-</body>
-</html>
+    <script>
+        //получить ширину скролла
+        const body = document.body;
+        const inner = document.querySelector('.container'); // или другой элемент, в котором нужно вычислить ширину
+        const scrollBarWidth = window.innerWidth - body.clientWidth;
+        document.documentElement.style.setProperty('--scrollbar-width', `${scrollBarWidth}px`);
 
+        function openModal(event) {
+            event.preventDefault(); // Предотвращаем действие по умолчанию
+
+            const modal = document.querySelector('[data-modal]'); // Находим модальное окно
+            if (modal) {
+                modal.classList.add('open'); // Добавляем класс для открытия
+
+                setTimeout(() => {
+                    modal.classList.add('animation'); // Добавляем класс для открытия
+                }, 300);
+            }
+        }
+
+        function closeModal() {
+            const modal = document.querySelector('[data-modal]'); // Находим модальное окно
+            if (modal) {
+                modal.classList.remove('animation'); // Убираем класс для закрытия
+                setTimeout(() => {
+                    modal.classList.remove('open'); // Убираем класс для закрытия
+                }, 300); // 300 мс соответствует transition времени
+
+                // Таймаут для завершения анимации перед скрытием
+            }
+        }
+
+        // Обработчик события для закрытия по клику на маску
+        function closeWindow(event) {
+            const modal = document.querySelector('[data-modal]');
+            if (modal && modal.classList.contains('open') && !event.target.closest('.modal_inner')) {
+                closeModal();
+            }
+        };
+    </script>
+    <!-- <script src="assets/js/app.js"></script> -->
+</body>
+
+</html>

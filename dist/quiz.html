@@ -38,7 +38,7 @@
                 <div class="container">
                     <div class="quiz_inner">
                         <div class="quiz_inner_quiestion">
-                            <h3 class="quiz_title">За сколько секунд CHERY TIGGO 7 PRO MAX достигает скорости в 100 км/ч в час?</h3>
+                            <h3 class="quiz_title">За сколько секунд CHERY TIGGO 7 PRO MAX достигает скорости в 100 км/ч в час?  7 PRO MAX достигает скорости в 100 км/ч в час?</h3>
                             <dl class="quiz_pages list-reset">
                                 <dt>2</dt>
                                 <dd class="list-reset">15</dd>
@@ -46,15 +46,15 @@
                         </div>
                         <div class="quiz_inner_quiestion">
                             <ul class="flex-column list-reset">
-                                <li>
+                                <li class="wrong">
                                     <input type="radio" name="question" id="option1" class="radio-button">
                                     <label for="option1">110</label>
                                 </li>
-                                <li>
+                                <li class="right">
                                     <input type="radio" name="question" id="option2" class="radio-button">
                                     <label for="option2">110</label>
                                 </li>
-                                <li>
+                                <li class="incorrect">
                                     <input type="radio" name="question" id="option3" class="radio-button">
                                     <label for="option3">110</label>
                                 </li>
@@ -64,7 +64,7 @@
                                 </li>
                             </ul>
                             <div class="flex-row">
-                                <a href="" class="project_link">← Назад</a>
+                                <!-- <a href="" class="project_link">← Назад</a> -->
                                 <a href="" class="project_link">Дальше →</a>
                             </div>
                         </div>
@@ -79,14 +79,56 @@
                         <a href="" class="img-wrap">
                             <img src="./assets/images/footer/CHERY-footer.svg" alt="logo" width="332" height="302">
                         </a>
+                    </div>
+                    <div class="footer_inner_item">
                         <small>© 2024 АО «Чери Автомобили Рус»</small>
                     </div>
-                    <a href="" class="footer_inner_politics">Политика конфиденциальности</a>
+                    <!-- <a href="" class="footer_inner_politics" style="display: none;">Политика конфиденциальности</a> -->
                 </div>
             </div>
         </footer>
     </div>
-    <script src="assets/js/app.js"></script>
-</body>
-</html>
+    <script>
+        //получить ширину скролла
+        const body = document.body;
+        const inner = document.querySelector('.container'); // или другой элемент, в котором нужно вычислить ширину
+        const scrollBarWidth = window.innerWidth - body.clientWidth;
+        document.documentElement.style.setProperty('--scrollbar-width', `${scrollBarWidth}px`);
 
+        function openModal(event) {
+            event.preventDefault(); // Предотвращаем действие по умолчанию
+
+            const modal = document.querySelector('[data-modal]'); // Находим модальное окно
+            if (modal) {
+                modal.classList.add('open'); // Добавляем класс для открытия
+
+                setTimeout(() => {
+                    modal.classList.add('animation'); // Добавляем класс для открытия
+                }, 300);
+            }
+        }
+
+        function closeModal() {
+            const modal = document.querySelector('[data-modal]'); // Находим модальное окно
+            if (modal) {
+                modal.classList.remove('animation'); // Убираем класс для закрытия
+                setTimeout(() => {
+                    modal.classList.remove('open'); // Убираем класс для закрытия
+                }, 300); // 300 мс соответствует transition времени
+
+                // Таймаут для завершения анимации перед скрытием
+            }
+        }
+
+        // Обработчик события для закрытия по клику на маску
+        function closeWindow(event) {
+            const modal = document.querySelector('[data-modal]');
+            if (modal && modal.classList.contains('open') && !event.target.closest('.modal_inner')) {
+                closeModal();
+            }
+        };
+    </script>
+    <!-- <script src="assets/js/app.js"></script> -->
+</body>
+
+</html>

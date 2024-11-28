@@ -1,0 +1,26 @@
+---
+layout: quiz
+title: Документ
+---
+
+<section class="anketa quiz section" style="background-image: url(./assets/images/anketa/anketa-new.webp);">
+    <div class="container">
+        <h2 class="project_title">анкета</h2>
+        <p class="project_desc">Пройдите квиз — получите возможность записаться <br> на тест-драйв CHERY и участвуйте в розыгрыше велосипеда.</p>
+        <form id="clientForm" action="">
+            <div class="flex-column">
+                <input type="text" class="project_input" placeholder="Имя" name="client_name" id="client_name" required>
+                <input type="tel" class="project_input" placeholder="Телефон" name="client_phone" id="client_phone" required>
+                <input type="email" class="project_input" placeholder="Email" name="client_email" id="client_email" required>
+                <!-- <input type="text" class="project_input" placeholder="Категория водительских прав" name="license_category" id="license_category" required> -->
+                <select class="project_input project_select" name="license_category" id="license_category" required>
+                    <option value="question" selected disabled>Наличие водительского удостоверения категории B/B1</option>
+                    <option value="yes">Да</option>
+                    <option value="no">Нет</option>
+                </select>
+                <input type="submit" class="project_submit" value="Вперёд!">
+            </div>
+        </form>
+        <small class="anketa_politics">*Нажимая на кнопку, вы принимаете условия <a class="anketa_links" href="">Политики конфиденциальности</a></small>
+    </div>
+</section>

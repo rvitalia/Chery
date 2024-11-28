@@ -1,7 +1,21 @@
-.page{
+.page {
     overflow: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100%;
     position: relative;
+    @include bg-cover;
+
+    // @include mobile {
+    //     min-height: 100dvh;
+
+
+    //     & .header {
+    //         min-height: 8dvh;
+    //     }
+
+    //     & .footer {
+    //         min-height: 8dvh;
+    //     }
+    // }
 }

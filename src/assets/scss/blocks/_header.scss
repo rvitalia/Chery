@@ -12,4 +12,12 @@
         display: flex;
         justify-content: center;
     }
+
+    & .header_logo{
+        @include mobile{
+            & img{
+                max-height: 8vh;
+            }
+        }
+    }
 }

@@ -1,0 +1,240 @@
+.result_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 100px;
+    min-height: 470px;
+
+    @include tablet {
+        padding: 30px;
+        // min-height: 510px;
+    }
+
+    & .grid-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 34px;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        &:nth-child(2) {
+            position: relative;
+            z-index: 2;
+
+            @include tablet {
+                gap: 10px;
+            }
+        }
+    }
+
+    & .project_title {
+        font-weight: 700;
+        font-size: clamp(24px, 3.5vw, 37px);
+        line-height: 120%;
+        color: #c30d23;
+    }
+
+    & .project_desc {
+        font-weight: 500;
+        font-size: clamp(19px, 3.2vw, 28px);
+        line-height: 120%;
+        color: #000;
+    }
+
+    & .project_link {
+        max-width: unset;
+        border: 5px solid var(--accent-color);
+        border-radius: 15px;
+        position: relative;
+        z-index: 2;
+
+        @include mobile {
+            font-size: 18px;
+        }
+
+        &.--white {
+            background-color: white;
+            color: var(--accent-color);
+        }
+    }
+}
+
+.result_inner_capture {
+    position: absolute;
+    bottom: 50%;
+    left: 5%;
+    z-index: 0;
+    max-height: 150px;
+
+    @include tablet {
+        left: unset;
+        right: 5%;
+        bottom: 80%;
+        max-height: 115px;
+    }
+}
+
+.result_inner_gift {
+    grid-template-columns: 1fr;
+    grid-column: 2;
+    position: relative;
+
+    @include tablet {
+        grid-column: unset;
+    }
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(14, 14, 14, 0.75);
+    transform-origin: 0 0;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.modal.open {
+    display: flex;
+    &.animation{
+        opacity: 1; 
+    }
+}
+
+.modal_inner {
+    background: #fff;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    gap: 40px;
+    padding: 36px;
+    
+    @media (max-width:1250px) {
+        max-width: 48vw;
+        gap: 3.5vw;
+        padding: 3vw;
+    }
+
+    @include small-tablet{
+        max-width: 90%;
+        padding: 4vw;
+    }
+
+    & .project_title {
+        font-weight: 700;
+        line-height: 120%;
+        text-align: center;
+        color: #c30d23;
+        font-size: 32px;
+
+        @media (max-width:1250px){
+            font-size: 2.6vw;
+        }
+
+        @include small-tablet{
+            font-size: 4.5vw;
+        }
+    }
+
+    & .flex-column {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 12px;
+
+        @media (max-width:1250px){
+            gap: 1vw;
+        }
+    }
+
+    & .grid-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        row-gap: 0;
+        
+        @media (max-width:1250px){
+            gap: 2vw;
+            row-gap: 0;
+        }
+
+        & img{
+            width: 100%;
+        }
+
+
+        & span {
+            grid-column: 3 span;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 120%;
+            color: #000;
+            text-align: center;
+            
+            @media (max-width:1250px){
+                font-size: 1.6vw;
+            }
+
+            @include small-tablet{
+                font-size: 3vw;
+            }
+        }
+    }
+}
+
+.project_link.--black {
+    border: 4px solid #000;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    gap: 12px;
+    max-width: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    min-height: 75px;
+    padding: 0;
+    font-size: 24px;
+    text-transform: unset;
+    font-weight: 500;
+    
+    @media (max-width:1250px){
+        border: 0.35vw solid #000;
+        gap: 1vw;
+        min-height: 6vw;
+        font-size: 1.9vw;
+        
+    }
+
+    @include small-tablet{
+        gap: 2vw;
+        font-size: 3.5vw;
+        border-width: 0.5vw;
+        min-height: 8vw;
+    }
+
+    & svg{
+        width: 30px;
+        height: 30px;
+        
+        @media (max-width:1250px){
+            width: 2.5vw;
+            height: 2.5vw;
+        }
+
+        @include small-tablet{
+            width: 4vw;
+            height: 4vw;
+        }
+    }
+}
